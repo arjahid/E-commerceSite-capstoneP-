@@ -3,7 +3,7 @@ import NavBar from '../NavBar';
 
 const About = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <NavBar></NavBar>
             i am form about
         </div>

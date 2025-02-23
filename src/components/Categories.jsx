@@ -3,7 +3,7 @@ import NavBar from '../NavBar';
 
 const Categories = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <NavBar>
                
             </NavBar>

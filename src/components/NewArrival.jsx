@@ -3,7 +3,7 @@ import NavBar from '../NavBar';
 
 const NewArrival = () => {
     return (
-        <div>
+        <div className='container mx-auto' >
             <NavBar></NavBar>
             I am form new arival
         </div>

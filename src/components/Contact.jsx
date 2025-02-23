@@ -3,7 +3,7 @@ import NavBar from '../NavBar';
 
 const Contact = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <NavBar></NavBar>
             I am form contact
         </div>

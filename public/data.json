@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "name": "Wireless Bluetooth Headphones",
+      "category": "Electronics",
+      "price": 49.99,
+      "discount": 10,
+      "stock": 25,
+      "rating": 4.5,
+      "brand": "Sony",
+      "description": "High-quality wireless headphones with noise cancellation.",
+      "image": "https://example.com/images/headphones.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Men's Casual Sneakers",
+      "category": "Fashion",
+      "price": 39.99,
+      "discount": 15,
+      "stock": 40,
+      "rating": 4.7,
+      "brand": "Nike",
+      "description": "Comfortable and stylish sneakers for everyday wear.",
+      "image": "https://example.com/images/sneakers.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Smart LED TV 55-inch",
+      "category": "Electronics",
+      "price": 599.99,
+      "discount": 20,
+      "stock": 10,
+      "rating": 4.8,
+      "brand": "Samsung",
+      "description": "4K UHD Smart TV with HDR and built-in apps.",
+      "image": "https://example.com/images/smart-tv.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Gaming Laptop - RTX 3060",
+      "category": "Computers",
+      "price": 1299.99,
+      "discount": 12,
+      "stock": 5,
+      "rating": 4.6,
+      "brand": "Asus",
+      "description": "High-performance gaming laptop with Intel i7 and RTX 3060 GPU.",
+      "image": "https://example.com/images/gaming-laptop.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Digital Smartwatch",
+      "category": "Accessories",
+      "price": 79.99,
+      "discount": 8,
+      "stock": 30,
+      "rating": 4.4,
+      "brand": "Apple",
+      "description": "Water-resistant smartwatch with fitness tracking and heart rate monitor.",
+      "image": "https://example.com/images/smartwatch.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Portable Power Bank 20000mAh",
+      "category": "Accessories",
+      "price": 29.99,
+      "discount": 5,
+      "stock": 50,
+      "rating": 4.3,
+      "brand": "Anker",
+      "description": "High-capacity power bank with fast charging support.",
+      "image": "https://example.com/images/power-bank.jpg"
+    }
+  ]
+  
