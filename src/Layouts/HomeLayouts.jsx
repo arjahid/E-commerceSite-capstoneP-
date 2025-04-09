@@ -10,6 +10,7 @@ import Divider from "../components/Divider";
 import Footer from "../components/Footer";
 import ShorCard from "../components/ShorCard";
 import ElectrinicsData from "../components/ElectrinicsData";
+import FashonData from "../components/FashonData";
 
 
 
@@ -37,6 +38,7 @@ const HomeLayouts = () => {
       </main>
       <ShorCard></ShorCard>
       <ElectrinicsData></ElectrinicsData>
+      <FashonData></FashonData>
       
       <Footer></Footer>
     </div>

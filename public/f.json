@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "name": "Men's Slim Fit Jeans",
+      "category": "Fashion",
+      "price": 49.99,
+      "discount": 15,
+      "stock": 30,
+      "rating": 4.6,
+      "brand": "Levi's",
+      "description": "Stylish slim fit jeans made from durable cotton with a comfortable stretch.",
+      "image": "https://i.postimg.cc/DZGWHxgk/shirt.webp"
+    },
+    {
+      "id": 2,
+      "name": "Women's Summer Dress",
+      "category": "Fashion",
+      "price": 29.99,
+      "discount": 20,
+      "stock": 50,
+      "rating": 4.5,
+      "brand": "H&M",
+      "description": "Light and breezy summer dress perfect for warm weather.",
+      "image": "https://m.media-amazon.com/images/I/71nTfGnv8wL._AC_UL1500_.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Men's Leather Jacket",
+      "category": "Fashion",
+      "price": 179.99,
+      "discount": 10,
+      "stock": 20,
+      "rating": 4.8,
+      "brand": "Schott NYC",
+      "description": "Classic leather jacket with a timeless design and high-quality finish.",
+      "image": "https://m.media-amazon.com/images/I/91qZ8vRSPyL._AC_UL1500_.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Women's High Heels",
+      "category": "Fashion",
+      "price": 69.99,
+      "discount": 25,
+      "stock": 40,
+      "rating": 4.7,
+      "brand": "Steve Madden",
+      "description": "Elegant high heels with a stylish design, perfect for formal occasions.",
+      "image": "https://m.media-amazon.com/images/I/91Y6O3dhfKL._AC_UL1500_.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Men's Sports Watch",
+      "category": "Fashion",
+      "price": 89.99,
+      "discount": 10,
+      "stock": 45,
+      "rating": 4.3,
+      "brand": "Fossil",
+      "description": "Durable sports watch with water resistance and multiple functions.",
+      "image": "https://i.postimg.cc/DZGWHxgk/shirt.webp"
+    },
+    {
+      "id": 6,
+      "name": "Women's Sunglasses",
+      "category": "Fashion",
+      "price": 24.99,
+      "discount": 30,
+      "stock": 60,
+      "rating": 4.4,
+      "brand": "Ray-Ban",
+      "description": "Classic sunglasses offering 100% UV protection and a stylish design.",
+      "image": "https://m.media-amazon.com/images/I/71mcXZHr7QL._AC_UL1500_.jpg"
+    }
+  ]
+  

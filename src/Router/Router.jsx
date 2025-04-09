@@ -6,6 +6,7 @@ import Contact from '../components/Contact';
 import Categories from '../components/Categories';
 import NewArrival from '../components/NewArrival';
 import CategeoriesNews from '../components/CategeoriesNews';
+import ElectronicsDetails from '../components/ElectronicsDetails';
 
 const Router = createBrowserRouter([
     {
@@ -20,6 +21,12 @@ const Router = createBrowserRouter([
                     const data = await response.json();
                     return data.find(item => item.id === params.id);
                 }
+            },
+            {
+                path: '/electronics/:id',
+                element:<ElectronicsDetails></ElectronicsDetails>,
+                loader:({params})=>fetch(`e.json/${params.id}`)
+                
             }
         ]
     },
