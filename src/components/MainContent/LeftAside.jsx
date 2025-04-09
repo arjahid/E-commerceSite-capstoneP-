@@ -17,7 +17,7 @@ const LeftAside = () => {
                 <NavLink  
                     key={index} 
                     to={`/categories/${item.id}`}
-                    className="py-2 px-4 rounded bg-primary text-white hover:bg-primary-focus"
+                    className="py-2 px-4 rounded bg-lime-600 text-white hover:bg-primary-focus"
                 >
                     {item.category}
                 </NavLink>

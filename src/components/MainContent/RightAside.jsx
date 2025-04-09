@@ -5,11 +5,11 @@ const RightAside = () => {
   return (
     <div>
       <div className="join flex-col gap-2 w-full ">
-        <button className="btn btn-primary join-item w-full">
-          <FaGoogle></FaGoogle> Login with Google
+        <button className="btn btn-primary join-item w-full bg-green-500">
+          <span className="text-xl"><FaGoogle></FaGoogle></span> <span className="font-bold pb-2"> Login with Google</span>
         </button>
         <button className="btn btn-secondary join-item w-full">
-          <FaGithub></FaGithub> Login with GitHub
+          <span className="text-xl"><FaGithub></FaGithub></span> <span className="font-bold pb-2">Login with GitHub</span>
         </button>
       </div>
       <div className="mt-6 p-4 bg-gray-100 rounded-lg shadow-md">

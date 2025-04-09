@@ -8,6 +8,7 @@ import NewArrival from '../components/NewArrival';
 import CategeoriesNews from '../components/CategeoriesNews';
 import ElectronicsDetails from '../components/ElectronicsDetails';
 import Setting from '../components/Profile/Setting';
+import Profile from '../components/Profile/Profile';
 
 const Router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const Router = createBrowserRouter([
     {
         path:'settings',
         element:<Setting></Setting>
+    },
+    {
+        path:'profile',
+        element:<Profile></Profile>
     },
     {
         path: '/about',

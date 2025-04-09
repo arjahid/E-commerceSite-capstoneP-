@@ -13,7 +13,7 @@ const NavBar = () => {
         </ul>
     );
     return (
-        <div className="navbar bg-gradient-to-r from-green-500 to-green-700 px-4 sm:px-6 lg:px-8 shadow-md">
+        <div className="navbar bg-gradient-to-r from-green-500 to-lime-500 px-4 sm:px-6 lg:px-8 shadow-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
