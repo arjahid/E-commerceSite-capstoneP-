@@ -7,6 +7,7 @@ import Categories from '../components/Categories';
 import NewArrival from '../components/NewArrival';
 import CategeoriesNews from '../components/CategeoriesNews';
 import ElectronicsDetails from '../components/ElectronicsDetails';
+import Setting from '../components/Profile/Setting';
 
 const Router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
                 
             }
         ]
+    },
+    {
+        path:'settings',
+        element:<Setting></Setting>
     },
     {
         path: '/about',

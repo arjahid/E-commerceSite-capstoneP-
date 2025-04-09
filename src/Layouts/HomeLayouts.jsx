@@ -23,7 +23,7 @@ const HomeLayouts = () => {
       
       <Carosel></Carosel>
       
-      <main className="w-full max-w-7xl mx-auto pt-5 grid md:grid-cols-12 gap-6 bg-gray-50 shadow-md rounded-lg">
+      <main className="w-full mx-auto pt-5 grid md:grid-cols-12 gap-6 bg-gray-50 shadow-md rounded-lg">
         <aside className="left col-span-12 md:col-span-3 lg:col-span-2 bg-gray-100 p-4 rounded-lg">
           <LeftAside></LeftAside>
         </aside>

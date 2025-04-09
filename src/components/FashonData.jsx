@@ -11,7 +11,7 @@ const FashonData = () => {
     },[])
     return (
         <div>
-            <h1 className="text-4xl font-extrabold text-start my-6 text-pink-700 underline decoration-yellow-500 decoration-4">
+            <h1 className="text-lg ml-2 sm:text-xl md:text-2xl lg:text-4xl font-extrabold text-start my-4 sm:my-6 text-pink-700 underline decoration-yellow-500 decoration-4">
                 Fashion Collection
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 bg-gray-100">
@@ -25,13 +25,13 @@ const FashonData = () => {
                         />
                         <p className="text-gray-600 mb-4">{item.description}</p>
                         <p className="text-xl font-bold text-red-600 mb-4">${item.price}</p>
-                        <div className="flex justify-between">
-                            <button className="px-6 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors">
+                        <div className="flex flex-col sm:flex-row justify-between gap-4">
+                            <button className="px-6 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors w-full sm:w-auto">
                                 Add to Cart
                             </button>
                             <NavLink 
                                 to={`/fashion/${item.id}`} 
-                                className="px-6 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors"
+                                className="px-6 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors w-full sm:w-auto text-center"
                             >
                                 View Details
                             </NavLink>
