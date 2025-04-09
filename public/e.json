@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "category": "Electronics",
+      "name": "Smartphone",
+      "brand": "Samsung",
+      "price": 500,
+      "quantity": 1,
+      "description": "Latest Samsung smartphone with 128GB storage and 6GB RAM",
+      "image": "https://i.postimg.cc/cCC2vXRy/circuit-board-green-and-gold.webp"
+    },
+    {
+      "id": 2,
+      "category": "Electronics",
+      "name": "Laptop",
+      "brand": "Dell",
+      "price": 800,
+      "quantity": 1,
+      "description": "Dell Inspiron laptop with Intel i5 processor and 8GB RAM",
+      "image": "https://i.postimg.cc/BvJh8m3Y/360-F-51490712-YGj-Cv-Uht-V970-HAB6-Ke-B8jgy-Zbk-PLKGvj.webp"
+    },
+    {
+      "id": 3,
+      "category": "Electronics",
+      "name": "Bluetooth Headphones",
+      "brand": "Sony",
+      "price": 150,
+      "quantity": 2,
+      "description": "Wireless Bluetooth headphones with noise cancellation",
+      "image": "https://i.postimg.cc/rppPnfHd/61-BAq-WMTfo-L.webp"
+    },
+    {
+      "id": 4,
+      "category": "ICs",
+      "name": "555 Timer IC",
+      "brand": "Texas Instruments",
+      "price": 1.5,
+      "quantity": 5,
+      "description": "Popular timer IC used in a variety of electronic circuits",
+      "image": "https://i.postimg.cc/cCC2vXRy/circuit-board-green-and-gold.webp"
+    },
+    {
+      "id": 5,
+      "category": "ICs",
+      "name": "LM317 Voltage Regulator",
+      "brand": "National Semiconductor",
+      "price": 2.0,
+      "quantity": 3,
+      "description": "Adjustable voltage regulator IC, commonly used in power supply circuits",
+      "image": "https://i.postimg.cc/BvJh8m3Y/360-F-51490712-YGj-Cv-Uht-V970-HAB6-Ke-B8jgy-Zbk-PLKGvj.webp"
+    },
+    {
+        "id": 4,
+        "category": "ICs",
+        "name": "555 Timer IC",
+        "brand": "Texas Instruments",
+        "price": 1.5,
+        "quantity": 5,
+        "description": "Popular timer IC used in a variety of electronic circuits",
+        "image": "https://i.postimg.cc/rppPnfHd/61-BAq-WMTfo-L.webp"
+      }
+  ]
+  

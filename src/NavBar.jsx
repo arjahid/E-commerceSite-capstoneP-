@@ -5,15 +5,15 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
     const links = (
         <ul className="flex flex-col lg:flex-row justify-center lg:justify-start space-y-2 lg:space-y-0 lg:space-x-2">
-            <li><NavLink to="/" className="px-4 py-2 text-center text-lg hover:bg-green-400 rounded-md">Home</NavLink></li>
-            <li><NavLink to="/new-arrival" className="px-4 py-2 text-center text-lg hover:bg-green-400  rounded-md">New Arrival</NavLink></li>
-            <li><NavLink to="/categories" className="px-4 py-2 text-center text-lg hover:bg-green-400  rounded-md">Categories</NavLink></li>
-            <li><NavLink to="/about" className="px-4 py-2 text-center text-lg hover:bg-green-400  rounded-md">About us</NavLink></li>
-            <li><NavLink to="/contact" className="px-4 py-2 text-center text-lg hover:bg-green-400  rounded-md">Contact</NavLink></li>
+            <li><NavLink to="/" className="px-4 py-2 text-center text-lg text-white hover:bg-green-400 rounded-md">Home</NavLink></li>
+            <li><NavLink to="/new-arrival" className="px-4 py-2 text-center text-lg text-white hover:bg-green-400 rounded-md">New Arrival</NavLink></li>
+            <li><NavLink to="/categories" className="px-4 py-2 text-center text-lg text-white hover:bg-green-400 rounded-md">Categories</NavLink></li>
+            <li><NavLink to="/about" className="px-4 py-2 text-center text-lg text-white hover:bg-green-400 rounded-md">About us</NavLink></li>
+            <li><NavLink to="/contact" className="px-4 py-2 text-center text-lg text-white hover:bg-green-400 rounded-md">Contact</NavLink></li>
         </ul>
     );
     return (
-        <div className="navbar bg-gradient-to-r from-blue-500 to-green-500 ">
+        <div className="navbar bg-gradient-to-r from-green-500 to-green-500 ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const NavBar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl hover:bg-green-400"><FaCartShopping></FaCartShopping> TrendBazar</a>
+    
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -44,7 +44,7 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn btn-accent">Login</a>
+   
   </div>
 </div>
     );
