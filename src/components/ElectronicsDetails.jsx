@@ -10,8 +10,11 @@ const ElectronicsDetails = () => {
     if (!data || data.length === 0) {
         return (
             <div>
+                
+                <div className="container mx-auto">
                 <Nav2></Nav2>
-                <NavBar></NavBar>
+                    <NavBar></NavBar>
+                </div>
                 <div className="container mx-auto px-4 py-8">
                     <h1 className="text-3xl font-bold mb-6 text-center">Electronics Details</h1>
                     <p className="text-center text-gray-600">No products available at the moment.</p>
@@ -23,7 +26,9 @@ const ElectronicsDetails = () => {
     return (
         <div>
             <Nav2></Nav2>
-            <NavBar></NavBar>
+            <div className="container mx-auto">
+                <NavBar></NavBar>
+            </div>
             <div className="container mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold mb-6 text-center">Electronics Details</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
