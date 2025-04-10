@@ -3,11 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 
 const CategeoriesNews = () => {
     const data=useLoaderData();
-    console.log(data)
+    console.log('cat',data)
     
     return (
         <div className='container mx-auto'>
-            dfdfd
+            <h2 className='text-black'>Here is the specefic category data</h2>
         </div>
     );
 };

@@ -20,19 +20,18 @@ const Router = createBrowserRouter([
             {
                 path: '/categories/:id',
                 element: <CategeoriesNews />,
-                loader: async ({ params }) => {
-                    const response = await fetch('data.json');
-                    const data = await response.json();
-                    return data.find(item => item.id === params.id);
-                }
+                loader:({params})=>fetch(`data.json/${params.id}`)
+                
             },
             {
-                path: '/electronics/:id',
-                element:<ElectronicsDetails></ElectronicsDetails>,
-                loader:({params})=>fetch(`e.json/${params.id}`)
-                
+                 
             }
         ]
+    },
+    {
+        path: '/electronics/:id',
+        element:<ElectronicsDetails></ElectronicsDetails>,
+        loader:({params})=>fetch(`e.json/${params.id}`)
     },
     {
         path:'settings',
