@@ -9,6 +9,8 @@ import CategeoriesNews from '../components/CategeoriesNews';
 import ElectronicsDetails from '../components/ElectronicsDetails';
 import Setting from '../components/Profile/Setting';
 import Profile from '../components/Profile/Profile';
+import Register from '../components/pages/Register';
+import Login from '../components/pages/Login';
 
 const Router = createBrowserRouter([
     {
@@ -54,6 +56,14 @@ const Router = createBrowserRouter([
     {
         path:'/new-arrival',
         element:<NewArrival></NewArrival>
+    },
+    {
+        path:'/register',
+        element:<Register></Register>
+    },
+    {
+        path:'/login',
+        element:<Login></Login>
     }
 ])
 

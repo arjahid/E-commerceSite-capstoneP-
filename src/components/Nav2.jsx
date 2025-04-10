@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav2 = () => {
   return (
-    <div className="bg-gradient-to-r from-green-500 to-lime-500 shadow-md px-4 sm:px-6 lg:px-10 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className="bg-gradient-to-r from-green-500 to-lime-500 shadow-md px-4 sm:px-6 lg:px-10 py-3 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-50">
       
       {/* Logo */}
       <NavLink
@@ -17,14 +17,36 @@ const Nav2 = () => {
       </NavLink>
 
       {/* Search */}
-      <div className="w-full md:w-auto flex justify-center">
+      <div className="w-full md:w-auto flex justify-center items-center gap-2">
         <input
           type="text"
           placeholder="Search for products..."
           className="input input-bordered w-full sm:w-80 md:w-96 max-w-full rounded-full px-4 py-2 focus:outline-none bg-white shadow-inner"
         />
+        <button
+          type="button"
+          className="px-4 py-2 bg-green-600 text-white rounded-full shadow hover:bg-green-700 transition"
+        >
+          Search
+        </button>
       </div>
 
+      {/* Login and Register Links */}
+      <div className="flex gap-4 justify-center items-center">
+        <NavLink
+          to="/login"
+          className="px-4 py-2 bg-lime-800 text-white rounded shadow hover:bg-blue-700 transition"
+        >
+          Login
+        </NavLink>
+        <NavLink
+          to="/register"
+          className="px-4 py-2 bg-lime-800 text-white rounded shadow hover:bg-gray-700 transition"
+        >
+          Register
+        </NavLink>
+      </div>
+      
       {/* Profile Dropdown */}
       <div className="dropdown dropdown-end">
         <div
@@ -41,7 +63,7 @@ const Nav2 = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-white rounded-box w-44 sm:w-52 text-sm sm:text-base"
+          className="menu menu-sm text-black dropdown-content mt-3 z-[1] p-2 shadow-lg bg-white rounded-box w-44 sm:w-52 text-sm sm:text-base"
         >
           <li>
             <NavLink to="/profile" className="hover:bg-green-100 transition px-2 rounded">
