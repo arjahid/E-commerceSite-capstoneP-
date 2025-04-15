@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../NavBar';
 import Nav2 from './Nav2';
+import { NavLink } from 'react-router-dom';
 
 const categoryData = [
     {
@@ -35,9 +36,10 @@ const Categories = () => {
             <Nav2 />
             <NavBar />
             <h1 className="text-3xl font-bold text-center my-6">Categories</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {categoryData.map((category) => (
-                    <div
+                    <NavLink 
+                        to={`/categories/${category.id}`} 
                         key={category.id}
                         className="border p-4 rounded-lg shadow-md transform transition-transform hover:scale-105 hover:shadow-lg bg-white"
                     >
@@ -48,7 +50,7 @@ const Categories = () => {
                         />
                         <h2 className="text-xl font-semibold mb-2">{category.name}</h2>
                         <p className="text-gray-600">{category.description}</p>
-                    </div>
+                    </NavLink>
                 ))}
             </div>
         </div>
