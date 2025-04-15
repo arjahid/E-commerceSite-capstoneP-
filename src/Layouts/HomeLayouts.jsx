@@ -18,7 +18,7 @@ const HomeLayouts = () => {
   return (
     <div className="container mx-auto ">
       <Nav2></Nav2>
-      <Divider></Divider>
+      
       <NavBar></NavBar>
       
       <Carosel></Carosel>
