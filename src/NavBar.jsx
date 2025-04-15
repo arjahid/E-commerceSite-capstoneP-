@@ -57,10 +57,10 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn bg-blue-500 hover:bg-blue-700 text-white flex items-center space-x-2 px-4 py-2 rounded-md shadow-md transition duration-300">
+                <NavLink to='/addToCart' className="btn bg-blue-500 hover:bg-blue-700 text-white flex items-center space-x-2 px-4 py-2 rounded-md shadow-md transition duration-300">
                     <FaCartShopping className="text-white" />
-                    <span>Cart</span>
-                </button>
+                    <span>Cart: 3</span> {/* Replace with dynamic cart count */}        
+                </NavLink>
             </div>
         </div>
     );

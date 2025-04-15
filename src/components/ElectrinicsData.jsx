@@ -28,9 +28,9 @@ const ElectrinicsData = () => {
                     <p className="text-gray-600 mb-4">{item.description}</p>
                     <p className="text-xl font-bold text-green-600 mb-4">${item.price}</p>
                     <div className="flex flex-col sm:flex-row justify-between gap-4">
-                        <button className="px-6 py-2 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition-colors w-full sm:w-auto">
+                        <NavLink to='/addToCart' className="px-6 py-2 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition-colors w-full sm:w-auto">
                             Add to Cart
-                        </button>
+                        </NavLink>
                         <Link 
                             to={`/electronics/${item.id}`} 
                             className="px-6 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors w-full sm:w-auto text-center"

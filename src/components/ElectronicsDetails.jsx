@@ -4,15 +4,16 @@ import NavBar from '../NavBar';
 import { useLoaderData } from 'react-router-dom';
 
 const ElectronicsDetails = () => {
-    const { data } = useLoaderData();
+    const data = useLoaderData();
     console.log(data);
 
-    if (!data || data.length === 0) {
+    const products = Array.isArray(data) ? data : []; // Ensure data is an array
+
+    if (products.length === 0) {
         return (
             <div>
-                
                 <div className="container mx-auto">
-                <Nav2></Nav2>
+                    <Nav2></Nav2>
                     <NavBar></NavBar>
                 </div>
                 <div className="container mx-auto px-4 py-8">
@@ -32,7 +33,7 @@ const ElectronicsDetails = () => {
             <div className="container mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold mb-6 text-center">Electronics Details</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {data.map((product) => (
+                    {products.map((product) => (
                         <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
                             <img
                                 src={product.image}

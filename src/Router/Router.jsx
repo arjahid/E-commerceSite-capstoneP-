@@ -11,6 +11,9 @@ import Setting from '../components/Profile/Setting';
 import Profile from '../components/Profile/Profile';
 import Register from '../components/pages/Register';
 import Login from '../components/pages/Login';
+import AddToCart from '../components/AddToCart';
+import FashonDetails from '../components/FashonDetails';
+
 
 const Router = createBrowserRouter([
     {
@@ -18,9 +21,9 @@ const Router = createBrowserRouter([
         element:<HomeLayouts></HomeLayouts>,
         children: [
             {
-                path: '/categories/:id',
+                path: '/categories/:category',
                 element: <CategeoriesNews />,
-                loader:({params})=>fetch(`data.json/${params.id}`)
+                loader:({params})=>fetch(`data.json/${params.category}`)
                 
             },
             {
@@ -32,6 +35,10 @@ const Router = createBrowserRouter([
         path: '/electronics/:id',
         element:<ElectronicsDetails></ElectronicsDetails>,
         loader:({params})=>fetch(`e.json/${params.id}`)
+    },
+    {
+        path:'fashion/:id',
+        element:<FashonDetails></FashonDetails>
     },
     {
         path:'settings',
@@ -55,6 +62,11 @@ const Router = createBrowserRouter([
     {
         path:'/new-arrival',
         element:<NewArrival></NewArrival>
+    },
+    
+    {
+        path:'/addToCart',
+        element:<AddToCart></AddToCart>
     },
     {
         path:'/register',

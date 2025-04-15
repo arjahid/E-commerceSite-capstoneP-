@@ -26,9 +26,9 @@ const FashonData = () => {
                         <p className="text-gray-600 mb-4">{item.description}</p>
                         <p className="text-xl font-bold text-red-600 mb-4">${item.price}</p>
                         <div className="flex flex-col sm:flex-row justify-between gap-4">
-                            <button className="px-6 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors w-full sm:w-auto">
+                            <NavLink to='/addToCart' className="px-6 py-2 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors w-full sm:w-auto">
                                 Add to Cart
-                            </button>
+                            </NavLink>
                             <NavLink 
                                 to={`/fashion/${item.id}`} 
                                 className="px-6 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition-colors w-full sm:w-auto text-center"

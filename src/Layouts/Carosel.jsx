@@ -1,5 +1,6 @@
 import React from 'react';
 import img from '../assets/WhatsApp Image 2025-04-10 at 1.35.47 PM.jpeg';
+import { NavLink } from 'react-router-dom';
 
 const Carosel = () => {
     return (
@@ -13,9 +14,9 @@ const Carosel = () => {
                     Discover the best deals and exclusive products tailored just for you. 
                     Shop now and enjoy a seamless shopping experience with us.
                 </p>
-                <button className="btn btn-primary px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <NavLink to='/new-arrival' className="btn btn-primary px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                     Explore Now
-                </button>
+                </NavLink>
             </div>
 
             {/* Right Side (Carousel) */}

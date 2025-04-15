@@ -16,7 +16,7 @@ const LeftAside = () => {
             {data.map((item, index) => (
                 <NavLink  
                     key={index} 
-                    to={`/categories/${item.id}`}
+                    to={`/categories/${item.category}`}
                     className="py-2 px-4 rounded bg-lime-600 text-white hover:bg-primary-focus"
                 >
                     {item.category}
