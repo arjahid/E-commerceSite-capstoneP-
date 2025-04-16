@@ -1,21 +1,21 @@
 import React from 'react';
-import img from '../../src/assets/WhatsApp Image 2025-04-16 at 1.16.39 AM.jpeg'
+import img from '../../src/assets/WhatsApp Image 2025-04-16 at 1.16.39 AM.jpeg';
 import { NavLink } from 'react-router-dom';
 
 const Carosel = () => {
     return (
         <div className="mx-auto w-7xl px-4 py-2 md:py-16 bg-white">
-            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden shadow-xl rounded-lg">
+            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden shadow-xl rounded-lg group">
                 {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 translate-y-0 transition-transform duration-1000 hover:scale-110 hover:translate-y-[-10px]"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-all duration-1000 group-hover:scale-110 group-hover:translate-y-[-5px] group-hover:brightness-75"
                     style={{
                         backgroundImage: `url(${img})`,
                     }}
                 ></div>
 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
 
                 {/* Text Content */}
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
