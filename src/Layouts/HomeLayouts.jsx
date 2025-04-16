@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import ShorCard from "../components/ShorCard";
 import ElectrinicsData from "../components/ElectrinicsData";
 import FashonData from "../components/FashonData";
+import Computers from "../components/Computers/Computers";
+import SportsData from "../components/Sports/SportsData";
 
 
 
@@ -38,6 +40,8 @@ const HomeLayouts = () => {
       <ShorCard></ShorCard>
       <ElectrinicsData></ElectrinicsData>
       <FashonData></FashonData>
+      <Computers></Computers>
+      <SportsData></SportsData>
       
       <Footer></Footer>
     </div>

@@ -1,0 +1,122 @@
+[
+    {
+      "id": 1,
+      "name": "Dell Inspiron 15 Laptop",
+      "category": "Computers",
+      "price": 799.99,
+      "discount": 10,
+      "stock": 20,
+      "rating": 4.4,
+      "brand": "Dell",
+      "description": "Powerful laptop with Intel Core i5, 8GB RAM, 512GB SSD, and a 15.6-inch Full HD display. Perfect for work and entertainment.",
+      "image": "https://www.pngall.com/wp-content/uploads/15/iMac-PNG-File.png"
+    },
+    {
+      "id": 2,
+      "name": "Apple MacBook Air M2",
+      "category": "Computers",
+      "price": 1199.00,
+      "discount": 5,
+      "stock": 15,
+      "rating": 4.8,
+      "brand": "Apple",
+      "description": "Ultra-slim and lightweight laptop featuring Apple's M2 chip, 8GB unified memory, and 256GB SSD for fast performance.",
+      "image": "https://www.pngmart.com/files/7/Mac-PNG-HD.png"
+    },
+    {
+      "id": 3,
+      "name": "HP Pavilion Gaming Desktop",
+      "category": "Computers",
+      "price": 999.99,
+      "discount": 12,
+      "stock": 10,
+      "rating": 4.5,
+      "brand": "HP",
+      "description": "High-performance gaming desktop with AMD Ryzen 5, NVIDIA GTX 1660, 16GB RAM, and 512GB SSD.",
+      "image": "https://www.pngmart.com/files/7/Mac-PNG-Photos.png"
+    },
+    {
+      "id": 4,
+      "name": "Lenovo IdeaPad 3",
+      "category": "Computers",
+      "price": 499.99,
+      "discount": 20,
+      "stock": 25,
+      "rating": 4.2,
+      "brand": "Lenovo",
+      "description": "Budget-friendly laptop with Intel Core i3, 8GB RAM, and 256GB SSD. Great for students and casual users.",
+      "image": "https://www.pngall.com/wp-content/uploads/15/iMac-PNG-File.png"
+    },
+    {
+      "id": 5,
+      "name": "Asus ROG Strix G15",
+      "category": "Computers",
+      "price": 1399.99,
+      "discount": 8,
+      "stock": 8,
+      "rating": 4.7,
+      "brand": "ASUS",
+      "description": "Gaming laptop packed with AMD Ryzen 7, RTX 3060, 16GB RAM, and 1TB SSD for extreme performance.",
+      "image": "https://www.pngmart.com/files/7/Mac-PNG-HD.png"
+    },
+    {
+      "id": 6,
+      "name": "Microsoft Surface Laptop 5",
+      "category": "Computers",
+      "price": 1099.00,
+      "discount": 10,
+      "stock": 12,
+      "rating": 4.6,
+      "brand": "Microsoft",
+      "description": "Premium design with 13.5-inch PixelSense display, Intel Evo i5 processor, and 512GB SSD.",
+      "image": "https://www.pngmart.com/files/7/Mac-PNG-Photos.png"
+    },
+    {
+      "id": 7,
+      "name": "Acer Aspire 5",
+      "category": "Computers",
+      "price": 579.99,
+      "discount": 15,
+      "stock": 18,
+      "rating": 4.3,
+      "brand": "Acer",
+      "description": "Reliable everyday laptop with AMD Ryzen 5, 8GB RAM, and 512GB SSD. Great for office and home use.",
+      "image": "https://www.pngall.com/wp-content/uploads/15/iMac-PNG-File.png"
+    },
+    {
+      "id": 8,
+      "name": "MSI GF63 Thin Gaming Laptop",
+      "category": "Computers",
+      "price": 899.99,
+      "discount": 10,
+      "stock": 9,
+      "rating": 4.5,
+      "brand": "MSI",
+      "description": "Lightweight gaming laptop with Intel Core i7, GTX 1650, 16GB RAM, and 512GB NVMe SSD.",
+      "image": "https://www.pngmart.com/files/7/Mac-PNG-HD.png"
+    },
+    {
+      "id": 9,
+      "name": "Apple iMac 24-inch",
+      "category": "Computers",
+      "price": 1499.00,
+      "discount": 7,
+      "stock": 7,
+      "rating": 4.9,
+      "brand": "Apple",
+      "description": "All-in-one desktop with M1 chip, stunning 4.5K Retina display, and elegant slim design.",
+      "image": "https://www.pngmart.com/files/7/Mac-PNG-Photos.png"
+    },
+    {
+      "id": 10,
+      "name": "Razer Blade 15",
+      "category": "Computers",
+      "price": 1999.99,
+      "discount": 5,
+      "stock": 5,
+      "rating": 4.6,
+      "brand": "Razer",
+      "description": "Sleek high-end gaming laptop with Intel Core i7, RTX 3070, 16GB RAM, and 1TB SSD.",
+      "image": "https://www.pngall.com/wp-content/uploads/15/iMac-PNG-File.png"
+    }
+  ]

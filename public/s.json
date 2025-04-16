@@ -1,0 +1,111 @@
+[
+    {
+      "id": 11,
+      "name": "Nike Air Zoom Pegasus 40",
+      "category": "Sports",
+      "price": 129.99,
+      "discount": 10,
+      "stock": 25,
+      "rating": 4.7,
+      "brand": "Nike",
+      "description": "Lightweight and responsive running shoes designed for everyday training with Zoom Air cushioning.",
+      "image": "https://wallpapers.com/images/hd/badminton-player-dynamic-smash-g71iuxt3xiycae25.png"
+    },
+    {
+      "id": 12,
+      "name": "Adidas Tiro 23 Training Pants",
+      "category": "Sports",
+      "price": 49.99,
+      "discount": 15,
+      "stock": 40,
+      "rating": 4.6,
+      "brand": "Adidas",
+      "description": "Comfortable training pants made with breathable fabric and a slim fit for enhanced mobility.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+    {
+      "id": 13,
+      "name": "Wilson Evolution Basketball",
+      "category": "Sports",
+      "price": 69.99,
+      "discount": 5,
+      "stock": 30,
+      "rating": 4.8,
+      "brand": "Wilson",
+      "description": "High-quality indoor basketball with a soft feel and great grip for consistent performance.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+    {
+      "id": 14,
+      "name": "Yonex Nanoray 18i Badminton Racket",
+      "category": "Sports",
+      "price": 34.99,
+      "discount": 20,
+      "stock": 50,
+      "rating": 4.5,
+      "brand": "Yonex",
+      "description": "Lightweight racket with excellent balance and speed, perfect for beginners and intermediate players.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+ 
+    {
+      "id": 16,
+      "name": "Spalding NBA Slam Jam Mini Hoop",
+      "category": "Sports",
+      "price": 29.99,
+      "discount": 8,
+      "stock": 20,
+      "rating": 4.6,
+      "brand": "Spalding",
+      "description": "Over-the-door mini basketball hoop for fun indoor practice and shooting games.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+    {
+      "id": 17,
+      "name": "Decathlon 500 Adjustable Dumbbells",
+      "category": "Sports",
+      "price": 89.99,
+      "discount": 12,
+      "stock": 15,
+      "rating": 4.5,
+      "brand": "Decathlon",
+      "description": "Versatile adjustable dumbbell set for strength training and full-body workouts at home.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+    {
+      "id": 18,
+      "name": "Under Armour Compression Shirt",
+      "category": "Sports",
+      "price": 34.99,
+      "discount": 10,
+      "stock": 28,
+      "rating": 4.3,
+      "brand": "Under Armour",
+      "description": "Tight-fitting performance shirt with sweat-wicking technology for better training sessions.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+    {
+      "id": 19,
+      "name": "Reebok Training Gloves",
+      "category": "Sports",
+      "price": 19.99,
+      "discount": 15,
+      "stock": 60,
+      "rating": 4.4,
+      "brand": "Reebok",
+      "description": "Breathable and padded gloves for gym workouts, weightlifting, and training comfort.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    },
+    {
+      "id": 20,
+      "name": "Nivia Cricket Kit Combo",
+      "category": "Sports",
+      "price": 99.99,
+      "discount": 10,
+      "stock": 10,
+      "rating": 4.2,
+      "brand": "Nivia",
+      "description": "Complete beginner-friendly cricket kit including bat, pads, gloves, and helmet.",
+      "image": "https://freepngimg.com/thumb/sports_equipment/22434-8-sport-image-thumb.png"
+    }
+  ]
