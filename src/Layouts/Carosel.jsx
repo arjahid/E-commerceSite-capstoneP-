@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../assets/WhatsApp Image 2025-04-10 at 1.35.47 PM.jpeg';
+import img from '../../src/assets/WhatsApp Image 2025-04-16 at 1.16.39 AM.jpeg'
 import { NavLink } from 'react-router-dom';
 
 const Carosel = () => {
@@ -8,7 +8,7 @@ const Carosel = () => {
             <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden shadow-xl rounded-lg">
                 {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-700 hover:scale-110"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 translate-y-0 transition-transform duration-1000 hover:scale-110 hover:translate-y-[-10px]"
                     style={{
                         backgroundImage: `url(${img})`,
                     }}
