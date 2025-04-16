@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../src/assets/WhatsApp Image 2025-04-16 at 1.16.39 AM.jpeg';
+import img from '../../src/assets/WhatsApp Image 2025-04-16 at 1.16.39 AM.jpeg'
 import { NavLink } from 'react-router-dom';
 
 const Carosel = () => {
