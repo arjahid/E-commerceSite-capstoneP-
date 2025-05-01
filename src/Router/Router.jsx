@@ -23,7 +23,8 @@ const Router = createBrowserRouter([
             {
                 path: '/categories/:category',
                 element: <CategeoriesNews />,
-                loader:({params})=>fetch(`data.json/${params.category}`)
+                loader: ({ params }) =>
+                    fetch(`http://localhost:3200/products?category=${params.category}`)
                 
             },
             {
@@ -34,7 +35,7 @@ const Router = createBrowserRouter([
     {
         path: '/electronics/:id',
         element:<ElectronicsDetails></ElectronicsDetails>,
-        loader:({params})=>fetch(`e.json/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:3200/electronics/${params.id}`)
     },
     {
         path:'fashion/:id',

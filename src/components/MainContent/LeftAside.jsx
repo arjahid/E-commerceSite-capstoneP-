@@ -5,21 +5,23 @@ const LeftAside = () => {
     const [data, setData] = useState([]);
     
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:3200/products')
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data);
+            })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
     
     return (
         <nav className="flex flex-col space-y-2">
-            {data.map((item, index) => (
+            {[...new Set(data.map(item => item.category))].map((category, index) => (
                 <NavLink  
                     key={index} 
-                    to={`/categories/${item.category}`}
+                    to={`/categories/${category}`}
                     className="py-2 px-4 rounded bg-lime-600 text-white hover:bg-primary-focus"
                 >
-                    {item.category}
+                    {category}
                 </NavLink>
             ))}
         </nav>

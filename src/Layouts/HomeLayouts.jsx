@@ -41,7 +41,7 @@ const HomeLayouts = () => {
       <ElectrinicsData></ElectrinicsData>
       <FashonData></FashonData>
       <Computers></Computers>
-      <SportsData></SportsData>
+      {/* <SportsData></SportsData> */}
       
       <Footer></Footer>
     </div>

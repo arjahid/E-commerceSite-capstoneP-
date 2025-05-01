@@ -1,8 +1,11 @@
  import React from 'react';
 import { FaCartShopping } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
+import useCart from './hook/useCart';
 
 const NavBar = () => {
+    const [cart]=useCart()
+    console.log('cart', cart)
     const links = (
         <ul className="flex flex-col lg:flex-row justify-center lg:justify-start space-y-2 lg:space-y-0 lg:space-x-6">
             <li><NavLink to="/" className="px-4 py-2 text-center text-lg text-white hover:bg-green-600 transition duration-300 rounded-md">Home</NavLink></li>
@@ -59,7 +62,7 @@ const NavBar = () => {
             <div className="navbar-end">
                 <NavLink to='/addToCart' className="btn bg-blue-500 hover:bg-blue-700 text-white flex items-center space-x-2 px-4 py-2 rounded-md shadow-md transition duration-300">
                     <FaCartShopping className="text-white" />
-                    <span>Cart: 3</span> {/* Replace with dynamic cart count */}        
+                    <span>Cart: {cart.length}</span> {/* Replace with dynamic cart count */}        
                 </NavLink>
             </div>
         </div>
