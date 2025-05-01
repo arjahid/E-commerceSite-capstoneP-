@@ -5,7 +5,7 @@ import useCart from './hook/useCart';
 
 const NavBar = () => {
     const [cart]=useCart()
-    console.log('cart', cart)
+    
     const links = (
         <ul className="flex flex-col lg:flex-row justify-center lg:justify-start space-y-2 lg:space-y-0 lg:space-x-6">
             <li><NavLink to="/" className="px-4 py-2 text-center text-lg text-white hover:bg-green-600 transition duration-300 rounded-md">Home</NavLink></li>

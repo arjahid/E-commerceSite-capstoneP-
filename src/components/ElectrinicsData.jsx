@@ -9,46 +9,64 @@ const ElectrinicsData = () => {
     const navigate = useNavigate();
     const [cart, isLoading, error, refetch] = useCart(); // Destructure as an array
 
-    const handleCart = (item) => {
-        const cartItem = {
-            id: item.id,
-            image: item.image,
-            name: item.name,
-            description: item.description,
-            brand: item.brand,
-            price: item.price,
-        };
+    const handleCart = async (item) => {
+        try {
+            // Check if the product already exists in the cart
+            const response = await axios.get('http://localhost:3200/cart');
+            const existingCart = response.data;
 
-        axios.post('http://localhost:3200/cart', cartItem)
-            .then(response => {
-                console.log('Item added to cart:', response.data);
-                refetch(); // Refresh the cart data
+            const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
+
+            if (isProductInCart) {
                 Swal.fire({
-                    title: "Added to Cart",
-                    text: "Your item has been added to the cart.",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Go to cart!",
-                    cancelButtonText: "Stay here"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate('/addToCart'); // Navigate to the cart page if confirmed
-                    } else {
-                        console.log('User chose to stay on the current page.');
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error adding item to cart:', error);
-                Swal.fire({
-                    title: "Error",
-                    text: "Failed to add the item to the cart. Please try again.",
-                    icon: "error",
+                    title: "Already in Cart",
+                    text: "This product is already in your cart.",
+                    icon: "info",
                     confirmButtonText: "OK"
                 });
+                return;
+            }
+
+            // Add the product to the cart if it doesn't exist
+            const cartItem = {
+                id: item.id,
+                image: item.image,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                price: item.price,
+            };
+
+            await axios.post('http://localhost:3200/cart', cartItem);
+            console.log('Item added to cart:', cartItem);
+
+            if (typeof refetch === 'function') {
+                refetch();
+            }
+
+            Swal.fire({
+                title: "Added to Cart",
+                text: "Your item has been added to the cart.",
+                icon: "success",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Go to cart!",
+                cancelButtonText: "Stay here"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/addToCart');
+                }
             });
+        } catch (error) {
+            console.error('Error handling cart:', error);
+            Swal.fire({
+                title: "Error",
+                text: "Failed to add the item to the cart. Please try again.",
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
     };
 
     useEffect(() => {
@@ -93,7 +111,7 @@ const ElectrinicsData = () => {
                                 Add to Cart
                             </NavLink>
                             <Link
-                                to={`/electronics/${item.id}`}
+                                to={`/electronics/${item._id}`}
                                 className="px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium rounded-md hover:from-blue-500 hover:to-blue-700 transition-colors text-center text-sm"
                             >
                                 View Details

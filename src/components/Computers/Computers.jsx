@@ -7,45 +7,60 @@ const Computers = () => {
     const [computers, setComputers] = useState([]);
     const navigate = useNavigate(); // Define navigate for routing
 
-    const handleCart = (item) => {
-        const cartItem = {
-            id: item.id,
-            image: item.image,
-            name: item.name,
-            description: item.description,
-            brand: item.brand,
-            price: item.price,
-        };
+    const handleCart = async (item) => {
+        try {
+            // Check if the product already exists in the cart
+            const response = await axios.get('http://localhost:3200/cart');
+            const existingCart = response.data;
 
-        axios.post('http://localhost:3200/cart', cartItem)
-            .then(response => {
-                console.log('Item added to cart:', response.data);
+            const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
+
+            if (isProductInCart) {
                 Swal.fire({
-                    title: "Added to Cart",
-                    text: "Your item has been added to the cart.",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Go to cart!",
-                    cancelButtonText: "Stay here"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate('/addToCart'); // Navigate to the cart page if confirmed
-                    } else {
-                        console.log('User chose to stay on the current page.');
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error adding item to cart:', error);
-                Swal.fire({
-                    title: "Error",
-                    text: "Failed to add the item to the cart. Please try again.",
-                    icon: "error",
+                    title: "Already in Cart",
+                    text: "This product is already in your cart.",
+                    icon: "info",
                     confirmButtonText: "OK"
                 });
+                return;
+            }
+
+            // Add the product to the cart if it doesn't exist
+            const cartItem = {
+                id: item.id,
+                image: item.image,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                price: item.price,
+            };
+
+            await axios.post('http://localhost:3200/cart', cartItem);
+            console.log('Item added to cart:', cartItem);
+
+            Swal.fire({
+                title: "Added to Cart",
+                text: "Your item has been added to the cart.",
+                icon: "success",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Go to cart!",
+                cancelButtonText: "Stay here"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/addToCart');
+                }
             });
+        } catch (error) {
+            console.error('Error handling cart:', error);
+            Swal.fire({
+                title: "Error",
+                text: "Failed to add the item to the cart. Please try again.",
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
     };
 
     useEffect(() => {
@@ -63,7 +78,7 @@ const Computers = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 p-6 bg-gray-100">
                 {computers.map((computer, index) => (
                     <div 
-                        key={index} 
+                        key={computer.id || index} // Use computer.id if available, otherwise fallback to index
                         className="relative flex flex-col justify-between h-full p-4 border rounded-lg shadow-md bg-gradient-to-br from-white via-gray-50 to-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                     >
                         {/* Badge for special items */}
