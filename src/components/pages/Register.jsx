@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Nav2 from '../Nav2';
 import NavBar from '../../NavBar';
 import SocialLogin from './SocialLogin';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
+   const {createuser}=useContext(AuthContext);
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
         console.log('Form submitted:', data);
+        createuser(data.email,data.password)
+        .then((result) => {
+            const user = result.user;
+            console.log('User registered:', user);
+            alert('User registered successfully!');
+            // Handle successful registration (e.g., redirect, show success message)
+        })
+        .catch((error) => {
+            console.error('Error registering user:', error);
+            // Handle registration error (e.g., show error message)
+        });
     }
     return (
         <div>
