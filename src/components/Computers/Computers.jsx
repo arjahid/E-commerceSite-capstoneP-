@@ -1,8 +1,52 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Computers = () => {
     const [computers, setComputers] = useState([]);
+    const navigate = useNavigate(); // Define navigate for routing
+
+    const handleCart = (item) => {
+        const cartItem = {
+            id: item.id,
+            image: item.image,
+            name: item.name,
+            description: item.description,
+            brand: item.brand,
+            price: item.price,
+        };
+
+        axios.post('http://localhost:3200/cart', cartItem)
+            .then(response => {
+                console.log('Item added to cart:', response.data);
+                Swal.fire({
+                    title: "Added to Cart",
+                    text: "Your item has been added to the cart.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Go to cart!",
+                    cancelButtonText: "Stay here"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/addToCart'); // Navigate to the cart page if confirmed
+                    } else {
+                        console.log('User chose to stay on the current page.');
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error adding item to cart:', error);
+                Swal.fire({
+                    title: "Error",
+                    text: "Failed to add the item to the cart. Please try again.",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            });
+    };
 
     useEffect(() => {
         fetch('http://localhost:3200/computer')
@@ -40,7 +84,7 @@ const Computers = () => {
                         </div>
                         <div className="flex flex-col sm:flex-row justify-between gap-2 mt-auto">
                             <NavLink 
-                                to='/addToCart' 
+                                onClick={() => handleCart(computer)}
                                 className="px-3 py-1 bg-gradient-to-r from-green-400 to-green-600 text-white font-medium rounded-md hover:from-green-500 hover:to-green-700 transition-colors text-center text-sm"
                             >
                                 Add to Cart

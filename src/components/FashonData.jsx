@@ -1,14 +1,60 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const FashonData = () => {
-    const [fashonData,setFashonData]=useState([]);
-    useEffect(()=>{
+    const [fashonData, setFashonData] = useState([]);
+    const navigate = useNavigate(); // Define navigate for routing
+
+    const handleCart = (item) => {
+        const cartItem = {
+            id: item.id,
+            image: item.image,
+            name: item.name,
+            description: item.description,
+            brand: item.brand,
+            price: item.price,
+        };
+
+        axios.post('http://localhost:3200/cart', cartItem)
+            .then(response => {
+                console.log('Item added to cart:', response.data);
+                Swal.fire({
+                    title: "Added to Cart",
+                    text: "Your item has been added to the cart.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Go to cart!",
+                    cancelButtonText: "Stay here"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/addToCart'); // Navigate to the cart page if confirmed
+                    } else {
+                        console.log('User chose to stay on the current page.');
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error adding item to cart:', error);
+                Swal.fire({
+                    title: "Error",
+                    text: "Failed to add the item to the cart. Please try again.",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            });
+    };
+
+    useEffect(() => {
         fetch('http://localhost:3200/fashon')
-        .then(res=>res.json())
-        .then(data=>setFashonData(data))
-        .catch(error=>console.error('Error fetching data:',error))
-    },[])
+            .then(res => res.json())
+            .then(data => setFashonData(data))
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
+
     return (
         <div>
             <h1 className="text-lg ml-2 sm:text-xl md:text-2xl lg:text-4xl font-extrabold text-start my-4 sm:my-6 text-pink-700 underline decoration-yellow-500 decoration-4">
@@ -38,7 +84,7 @@ const FashonData = () => {
                         </div>
                         <div className="flex flex-col sm:flex-row justify-between gap-2 mt-auto">
                             <NavLink 
-                                to='/addToCart' 
+                                onClick={() => handleCart(item)}
                                 className="px-3 py-1 bg-gradient-to-r from-pink-400 to-pink-600 text-white font-medium rounded-md hover:from-pink-500 hover:to-pink-700 transition-colors text-center text-sm"
                             >
                                 Add to Cart
