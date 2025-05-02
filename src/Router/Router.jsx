@@ -13,6 +13,7 @@ import Register from '../components/pages/Register';
 import Login from '../components/pages/Login';
 import AddToCart from '../components/AddToCart';
 import FashonDetails from '../components/FashonDetails';
+import ComputerDetails from '../ComputerDetails';
 
 
 const Router = createBrowserRouter([
@@ -38,8 +39,14 @@ const Router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:3200/electronics/${params.id}`)
     },
     {
-        path:'fashion/:id',
-        element:<FashonDetails></FashonDetails>
+        path:'/fashon/:id',
+        element:<FashonDetails></FashonDetails>,
+        loader:({params})=>fetch(`http://localhost:3200/fashon/${params.id}`)
+    },
+    {
+        path:'/computers/:id',
+        element:<ComputerDetails></ComputerDetails>,
+        loader:({params})=>fetch(`http://localhost:3200/computer/${params.id}`)
     },
     {
         path:'settings',

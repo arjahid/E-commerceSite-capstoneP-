@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaCartShopping } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Nav2 = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        console.log("User logged out successfully");
+        alert("User logged out successfully!");
+        navigate("/login"); // Redirect to home page after successful logout
+      })
+      .catch((error) => {
+        console.error("Error logging out user:", error);
+        alert("Error logging out user:", error.message);
+      });
+  };
+
   return (
     <div className="bg-gradient-to-r from-green-500 to-lime-500 shadow-md px-4 sm:px-6 lg:px-10 py-3 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-50">
-      
       {/* Logo */}
       <NavLink
+      onClick={() => window.scrollTo(0, 0)}
         to="/"
         className="flex items-center gap-2 text-white bg-white px-4 py-2 rounded-full shadow hover:shadow-md hover:bg-green-100 transition"
       >
-        <FaCartShopping className="text-green-600 text-lg" />
+        <FaCartShopping className="text-green-600 text-lg" /> 
         <span className="text-xl font-bold text-red-600">Trend</span>
         <span className="text-xl font-bold text-green-600">Bazar</span>
       </NavLink>
@@ -33,20 +50,31 @@ const Nav2 = () => {
 
       {/* Login and Register Links */}
       <div className="flex gap-4 justify-center items-center">
-        <NavLink
-          to="/login"
-          className="px-4 py-2 bg-lime-800 text-white rounded shadow hover:bg-blue-700 transition"
-        >
-          Login
-        </NavLink>
-        <NavLink
-          to="/register"
-          className="px-4 py-2 bg-lime-800 text-white rounded shadow hover:bg-gray-700 transition"
-        >
-          Register
-        </NavLink>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 bg-green-600 text-white rounded shadow hover:bg-red-700 transition"
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <NavLink
+              to="/login"
+              className="px-4 py-2 bg-lime-800 text-white rounded shadow hover:bg-blue-700 transition"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="px-4 py-2 bg-lime-800 text-white rounded shadow hover:bg-gray-700 transition"
+            >
+              Register
+            </NavLink>
+          </>
+        )}
       </div>
-      
+
       {/* Profile Dropdown */}
       <div className="dropdown dropdown-end">
         <div
@@ -57,7 +85,7 @@ const Nav2 = () => {
           <div className="w-10 rounded-full ring ring-white ring-offset-2 ring-offset-green-500">
             <img
               alt="User Avatar"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
             />
           </div>
         </div>
@@ -76,7 +104,10 @@ const Nav2 = () => {
             </NavLink>
           </li>
           <li>
-            <button className="text-red-600 hover:bg-red-100 transition px-2 rounded">
+            <button
+              onClick={handleLogout}
+              className="text-red-600 hover:bg-red-100 transition px-2 rounded"
+            >
               LogOut
             </button>
           </li>

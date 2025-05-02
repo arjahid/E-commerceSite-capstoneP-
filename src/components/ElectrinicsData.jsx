@@ -1,72 +1,88 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useCart from '../hook/useCart';
+import { AuthContext } from '../providers/AuthProvider';
 
 const ElectrinicsData = () => {
+    const {user}=useContext(AuthContext)
     const [data, setData] = useState([]);
     const navigate = useNavigate();
+    const location=useLocation();
     const [cart, isLoading, error, refetch] = useCart(); // Destructure as an array
 
     const handleCart = async (item) => {
-        try {
-            // Check if the product already exists in the cart
-            const response = await axios.get('http://localhost:3200/cart');
-            const existingCart = response.data;
-
-            const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
-
-            if (isProductInCart) {
+        if(user && user.email){
+            try {
+                // Check if the product already exists in the cart
+                const response = await axios.get(`http://localhost:3200/cart?email=${user.email}`);
+                const existingCart = response.data;
+    
+                const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
+    
+                if (isProductInCart) {
+                    Swal.fire({
+                        title: "Already in Cart",
+                        text: "This product is already in your cart.",
+                        icon: "info",
+                        confirmButtonText: "OK"
+                    });
+                    return;
+                }
+    
+                // Add the product to the cart if it doesn't exist
+                const cartItem = {
+                    id: item.id,
+                    email: user.email,
+                    image: item.image,
+                    name: item.name,
+                    description: item.description,
+                    brand: item.brand,
+                    price: item.price,
+                };
+    
+                await axios.post('http://localhost:3200/cart', cartItem);
+                console.log('Item added to cart:', cartItem);
+    
+                 
+    
                 Swal.fire({
-                    title: "Already in Cart",
-                    text: "This product is already in your cart.",
-                    icon: "info",
+                    title: "Added to Cart",
+                    text: "Your item has been added to the cart.",
+                    icon: "success",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Go to cart!",
+                    cancelButtonText: "Stay here"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/addToCart');
+                    }
+                    refetch()
+                });
+            } catch (error) {
+                console.error('Error handling cart:', error);
+                Swal.fire({
+                    title: "Error",
+                    text: "Failed to add the item to the cart. Please try again.",
+                    icon: "error",
                     confirmButtonText: "OK"
                 });
-                return;
             }
 
-            // Add the product to the cart if it doesn't exist
-            const cartItem = {
-                id: item.id,
-                image: item.image,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                price: item.price,
-            };
-
-            await axios.post('http://localhost:3200/cart', cartItem);
-            console.log('Item added to cart:', cartItem);
-
-            if (typeof refetch === 'function') {
-                refetch();
-            }
-
+        }
+        else{
             Swal.fire({
-                title: "Added to Cart",
-                text: "Your item has been added to the cart.",
-                icon: "success",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Go to cart!",
-                cancelButtonText: "Stay here"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navigate('/addToCart');
-                }
-            });
-        } catch (error) {
-            console.error('Error handling cart:', error);
-            Swal.fire({
-                title: "Error",
-                text: "Failed to add the item to the cart. Please try again.",
-                icon: "error",
+                title: "Login Required",
+                text: "Please log in to add items to your cart.",
+                icon: "warning",
                 confirmButtonText: "OK"
             });
+            navigate('/login', { state: { from: location } });
         }
+        
     };
 
     useEffect(() => {

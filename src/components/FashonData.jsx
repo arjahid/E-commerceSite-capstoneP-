@@ -1,65 +1,81 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { AuthContext } from '../providers/AuthProvider';
+import useCart from '../hook/useCart';
 
 const FashonData = () => {
+    const { user } = useContext(AuthContext);
+    const [cart, refetch] = useCart();
     const [fashonData, setFashonData] = useState([]);
-    const navigate = useNavigate(); // Define navigate for routing
+    const navigate = useNavigate();
 
     const handleCart = async (item) => {
-        try {
-            // Check if the product already exists in the cart
-            const response = await axios.get('http://localhost:3200/cart');
-            const existingCart = response.data;
+        if (user && user.email) {
+            try {
+                const response = await axios.get(`http://localhost:3200/cart?email=${user.email}`);
+                const existingCart = response.data || []; // Ensure existingCart is an array
 
-            const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
+                // Check if the product is already in the cart using MongoDB's unique _id
+                const isProductInCart = existingCart.some(cartItem => cartItem._id === item._id);
 
-            if (isProductInCart) {
+                if (isProductInCart) {
+                    Swal.fire({
+                        title: "Already in Cart",
+                        text: "This product is already in your cart.",
+                        icon: "info",
+                        confirmButtonText: "OK"
+                    });
+                    return;
+                }
+
+                const cartItem = {
+                    _id: item._id, // Use MongoDB's unique _id
+                    image: item.image,
+                    email: user.email,
+                    name: item.name,
+                    description: item.description,
+                    brand: item.brand,
+                    price: item.price,
+                };
+
+                await axios.post('http://localhost:3200/cart', cartItem);
+               
+
                 Swal.fire({
-                    title: "Already in Cart",
-                    text: "This product is already in your cart.",
-                    icon: "info",
+                    title: "Added to Cart",
+                    text: "Your item has been added to the cart.",
+                    icon: "success",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Go to cart!",
+                    cancelButtonText: "Stay here"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/addToCart');
+                    }
+                    refetch()
+                });
+            } catch (error) {
+                console.error('Error handling cart:', error);
+                Swal.fire({
+                    title: "Error",
+                    text: "Failed to add the item to the cart. Please try again.",
+                    icon: "error",
                     confirmButtonText: "OK"
                 });
-                return;
+               
             }
-
-            // Add the product to the cart if it doesn't exist
-            const cartItem = {
-                id: item.id,
-                image: item.image,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                price: item.price,
-            };
-
-            await axios.post('http://localhost:3200/cart', cartItem);
-            console.log('Item added to cart:', cartItem);
-
+        } else {
             Swal.fire({
-                title: "Added to Cart",
-                text: "Your item has been added to the cart.",
-                icon: "success",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Go to cart!",
-                cancelButtonText: "Stay here"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navigate('/addToCart');
-                }
-            });
-        } catch (error) {
-            console.error('Error handling cart:', error);
-            Swal.fire({
-                title: "Error",
-                text: "Failed to add the item to the cart. Please try again.",
-                icon: "error",
+                title: "Login Required",
+                text: "Please log in to add items to your cart.",
+                icon: "warning",
                 confirmButtonText: "OK"
             });
+            navigate('/login');
         }
     };
 
@@ -78,7 +94,7 @@ const FashonData = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 p-6 bg-gray-100">
                 {fashonData.map((item, index) => (
                     <div 
-                        key={index} 
+                        key={item._id} // Use MongoDB's unique _id as the key
                         className="relative flex flex-col justify-between h-full p-4 border rounded-lg shadow-md bg-gradient-to-br from-white via-gray-50 to-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                     >
                         {/* Badge for special items */}
@@ -105,7 +121,7 @@ const FashonData = () => {
                                 Add to Cart
                             </NavLink>
                             <NavLink 
-                                to={`/fashion/${item.id}`} 
+                                to={`/fashon/${item._id}`} // Use MongoDB's unique _id for navigation
                                 className="px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium rounded-md hover:from-blue-500 hover:to-blue-700 transition-colors text-center text-sm"
                             >
                                 View Details
