@@ -6,29 +6,20 @@ import { AuthContext } from '../providers/AuthProvider';
 import useCart from '../hook/useCart';
 
 const FashonData = () => {
-    const {user}=useContext(AuthContext)
-    
-    const [cart,refetch]=useCart();
+    const { user } = useContext(AuthContext);
+    const [cart, refetch] = useCart();
     const [fashonData, setFashonData] = useState([]);
-    const navigate = useNavigate(); // Define navigate for routing
+    const navigate = useNavigate();
 
     const handleCart = async (item) => {
         if (user && user.email) {
             try {
                 const response = await axios.get(`http://localhost:3200/cart?email=${user.email}`);
-                const existingCart = response.data;
-    
-                const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
-  
-                if (isProductInCart) {
-                    Swal.fire({
-                        title: "Already in Cart",
-                        text: "This product is already in your cart.",
-                        icon: "info",
-                        confirmButtonText: "OK"
-                    });
-                    return;}
-    
+                const existingCart = response.data || []; // Ensure existingCart is an array
+
+                // Check if the product is already in the cart using MongoDB's unique _id
+                const isProductInCart = existingCart.some(cartItem => cartItem._id === item._id);
+
                 if (isProductInCart) {
                     Swal.fire({
                         title: "Already in Cart",
@@ -38,9 +29,9 @@ const FashonData = () => {
                     });
                     return;
                 }
-    
+
                 const cartItem = {
-                    id: item._id,
+                    _id: item._id, // Use MongoDB's unique _id
                     image: item.image,
                     email: user.email,
                     name: item.name,
@@ -48,12 +39,10 @@ const FashonData = () => {
                     brand: item.brand,
                     price: item.price,
                 };
-    
+
                 await axios.post('http://localhost:3200/cart', cartItem);
-                if (typeof refetch === 'function') {
-                    refetch();
-                }
-    
+               
+
                 Swal.fire({
                     title: "Added to Cart",
                     text: "Your item has been added to the cart.",
@@ -63,8 +52,6 @@ const FashonData = () => {
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Go to cart!",
                     cancelButtonText: "Stay here"
-                    
-
                 }).then((result) => {
                     if (result.isConfirmed) {
                         navigate('/addToCart');
@@ -79,6 +66,7 @@ const FashonData = () => {
                     icon: "error",
                     confirmButtonText: "OK"
                 });
+               
             }
         } else {
             Swal.fire({
@@ -90,8 +78,6 @@ const FashonData = () => {
             navigate('/login');
         }
     };
-    
-    
 
     useEffect(() => {
         fetch('http://localhost:3200/fashon')
@@ -108,7 +94,7 @@ const FashonData = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 p-6 bg-gray-100">
                 {fashonData.map((item, index) => (
                     <div 
-                        key={index} 
+                        key={item._id} // Use MongoDB's unique _id as the key
                         className="relative flex flex-col justify-between h-full p-4 border rounded-lg shadow-md bg-gradient-to-br from-white via-gray-50 to-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                     >
                         {/* Badge for special items */}
@@ -135,7 +121,7 @@ const FashonData = () => {
                                 Add to Cart
                             </NavLink>
                             <NavLink 
-                                to={`/fashion/${item.id}`} 
+                                to={`/fashion/${item._id}`} // Use MongoDB's unique _id for navigation
                                 className="px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium rounded-md hover:from-blue-500 hover:to-blue-700 transition-colors text-center text-sm"
                             >
                                 View Details
