@@ -121,7 +121,7 @@ const FashonData = () => {
                                 Add to Cart
                             </NavLink>
                             <NavLink 
-                                to={`/fashion/${item._id}`} // Use MongoDB's unique _id for navigation
+                                to={`/fashon/${item._id}`} // Use MongoDB's unique _id for navigation
                                 className="px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium rounded-md hover:from-blue-500 hover:to-blue-700 transition-colors text-center text-sm"
                             >
                                 View Details

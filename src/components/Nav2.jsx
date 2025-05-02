@@ -24,10 +24,11 @@ const Nav2 = () => {
     <div className="bg-gradient-to-r from-green-500 to-lime-500 shadow-md px-4 sm:px-6 lg:px-10 py-3 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-50">
       {/* Logo */}
       <NavLink
+      onClick={() => window.scrollTo(0, 0)}
         to="/"
         className="flex items-center gap-2 text-white bg-white px-4 py-2 rounded-full shadow hover:shadow-md hover:bg-green-100 transition"
       >
-        <FaCartShopping className="text-green-600 text-lg" />
+        <FaCartShopping className="text-green-600 text-lg" /> 
         <span className="text-xl font-bold text-red-600">Trend</span>
         <span className="text-xl font-bold text-green-600">Bazar</span>
       </NavLink>

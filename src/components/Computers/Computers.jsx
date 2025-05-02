@@ -13,7 +13,7 @@ const Computers = () => {
             const response = await axios.get('http://localhost:3200/cart');
             const existingCart = response.data;
 
-            const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
+            const isProductInCart = existingCart.some(cartItem => cartItem._id === item._id);
 
             if (isProductInCart) {
                 Swal.fire({
@@ -27,7 +27,7 @@ const Computers = () => {
 
             // Add the product to the cart if it doesn't exist
             const cartItem = {
-                id: item.id,
+                id: item._id,
                 image: item.image,
                 name: item.name,
                 description: item.description,
@@ -105,7 +105,7 @@ const Computers = () => {
                                 Add to Cart
                             </NavLink>
                             <NavLink 
-                                to={`/computers/${computer.id}`} 
+                                to={`/computers/${computer._id}`} 
                                 className="px-3 py-1 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium rounded-md hover:from-blue-500 hover:to-blue-700 transition-colors text-center text-sm"
                             >
                                 View Details
