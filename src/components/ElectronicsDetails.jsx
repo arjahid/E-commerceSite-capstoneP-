@@ -14,7 +14,7 @@ const ElectronicsDetails = () => {
     const handleCart = async (item) => {
         try {
             // Check if the product already exists in the cart
-            const response = await axios.get('http://localhost:3200/cart');
+            const response = await axios.get('https://trendbazar-server.onrender.com/cart');
             const existingCart = response.data;
 
             const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
@@ -39,7 +39,7 @@ const ElectronicsDetails = () => {
                 price: item.price,
             };
 
-            await axios.post('http://localhost:3200/cart', cartItem);
+            await axios.post('https://trendbazar-server.onrender.com/cart', cartItem);
             console.log('Item added to cart:', cartItem);
 
             if (typeof refetch === 'function') {

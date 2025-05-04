@@ -14,7 +14,7 @@ const FashonData = () => {
     const handleCart = async (item) => {
         if (user && user.email) {
             try {
-                const response = await axios.get(`http://localhost:3200/cart?email=${user.email}`);
+                const response = await axios.get(`https://trendbazar-server.onrender.com/cart?email=${user.email}`);
                 const existingCart = response.data || []; // Ensure existingCart is an array
 
                 // Check if the product is already in the cart using MongoDB's unique _id
@@ -40,7 +40,7 @@ const FashonData = () => {
                     price: item.price,
                 };
 
-                await axios.post('http://localhost:3200/cart', cartItem);
+                await axios.post('https://trendbazar-server.onrender.com/cart', cartItem);
                
 
                 Swal.fire({
@@ -80,7 +80,7 @@ const FashonData = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3200/fashon')
+        fetch('https://trendbazar-server.onrender.com/fashon')
             .then(res => res.json())
             .then(data => setFashonData(data))
             .catch(error => console.error('Error fetching data:', error));

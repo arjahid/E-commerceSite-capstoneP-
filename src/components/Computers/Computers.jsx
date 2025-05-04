@@ -10,7 +10,7 @@ const Computers = () => {
     const handleCart = async (item) => {
         try {
             // Check if the product already exists in the cart
-            const response = await axios.get('http://localhost:3200/cart');
+            const response = await axios.get('https://trendbazar-server.onrender.com/cart');
             const existingCart = response.data;
 
             const isProductInCart = existingCart.some(cartItem => cartItem._id === item._id);
@@ -35,7 +35,7 @@ const Computers = () => {
                 price: item.price,
             };
 
-            await axios.post('http://localhost:3200/cart', cartItem);
+            await axios.post('https://trendbazar-server.onrender.com/cart', cartItem);
             console.log('Item added to cart:', cartItem);
 
             Swal.fire({
@@ -64,7 +64,7 @@ const Computers = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3200/computer')
+        fetch('https://trendbazar-server.onrender.com/computer')
             .then(res => res.json())
             .then(data => setComputers(data))
             .catch(error => console.log(error));

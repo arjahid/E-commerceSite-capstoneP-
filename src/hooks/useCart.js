@@ -17,7 +17,7 @@ const useCart = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:3200/cart', cartItem);
+            const response = await axios.post('https://trendbazar-server.onrender.com/cart', cartItem);
             console.log('Item added to cart:', response.data);
 
             // Call refetch if it is provided
