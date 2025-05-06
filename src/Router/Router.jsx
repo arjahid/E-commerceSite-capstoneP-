@@ -25,7 +25,7 @@ const Router = createBrowserRouter([
                 path: '/categories/:category',
                 element: <CategeoriesNews />,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:3200/products?category=${params.category}`)
+                    fetch(`https://trendbazar-server.onrender.com/products?category=${params.category}`)
                 
             },
             {
@@ -36,17 +36,17 @@ const Router = createBrowserRouter([
     {
         path: '/electronics/:id',
         element:<ElectronicsDetails></ElectronicsDetails>,
-        loader:({params})=>fetch(`http://localhost:3200/electronics/${params.id}`)
+        loader:({params})=>fetch(`https://trendbazar-server.onrender.com/electronics/${params.id}`)
     },
     {
         path:'/fashon/:id',
         element:<FashonDetails></FashonDetails>,
-        loader:({params})=>fetch(`http://localhost:3200/fashon/${params.id}`)
+        loader:({params})=>fetch(`https://trendbazar-server.onrender.com/fashon/${params.id}`)
     },
     {
         path:'/computers/:id',
         element:<ComputerDetails></ComputerDetails>,
-        loader:({params})=>fetch(`http://localhost:3200/computer/${params.id}`)
+        loader:({params})=>fetch(`https://trendbazar-server.onrender.com/computer/${params.id}`)
     },
     {
         path:'settings',

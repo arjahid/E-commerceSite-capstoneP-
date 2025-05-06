@@ -10,7 +10,7 @@ const useCart = () => {
          enabled: !!user?.email, // Only run the query if user email is available
         queryFn: async () => {
             try {
-                const res = await axios.get(`http://localhost:3200/cart?email=${user?.email}`); // Fetch cart data based on user email
+                const res = await axios.get(`https://trendbazar-server.onrender.com/cart?email=${user?.email}`); // Fetch cart data based on user email
                 return res.data; // Return the data directly from the response
             } catch (error) {
                 throw new Error('Failed to fetch cart data'); // Explicit error handling

@@ -16,7 +16,7 @@ const ElectrinicsData = () => {
         if(user && user.email){
             try {
                 // Check if the product already exists in the cart
-                const response = await axios.get(`http://localhost:3200/cart?email=${user.email}`);
+                const response = await axios.get(`https://trendbazar-server.onrender.com/cart?email=${user.email}`);
                 const existingCart = response.data;
     
                 const isProductInCart = existingCart.some(cartItem => cartItem.id === item.id);
@@ -42,7 +42,7 @@ const ElectrinicsData = () => {
                     price: item.price,
                 };
     
-                await axios.post('http://localhost:3200/cart', cartItem);
+                await axios.post('https://trendbazar-server.onrender.com/cart', cartItem);
                 console.log('Item added to cart:', cartItem);
     
                  
@@ -86,7 +86,7 @@ const ElectrinicsData = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3200/electronics')
+        fetch('https://trendbazar-server.onrender.com/electronics')
             .then(res => res.json())
             .then(data => setData(data))
             .catch(error => console.error('Error fetching data:', error));
